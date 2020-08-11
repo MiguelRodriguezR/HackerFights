@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { FirebaseContext } from "../firebase";
+import Layout from "../components/layouts/Layout";
+import Main from "../components/views/main/Main";
 
 export default function Home() {
   const { user } = useContext(FirebaseContext);
@@ -11,7 +13,9 @@ export default function Home() {
 
   return (
     <>
-      <h1>Hacker Fights</h1>
+      <Layout>
+        <Main></Main>
+      </Layout>
     </>
   );
 }

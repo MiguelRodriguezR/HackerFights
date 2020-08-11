@@ -43,3 +43,11 @@ input:-webkit-autofill {
   -webkit-text-fill-color: white !important;
 }
 
+@media (max-width: 600px) {
+  .css-gohixa{
+    margin-top: 20px !important;
+  }
+}
+
+
+
