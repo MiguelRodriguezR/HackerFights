@@ -13,12 +13,48 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     div {
-      margin-right: 13px;
+      margin-right: 15px;
     }
 
     .photo {
       img {
         width: 35px;
+      }
+    }
+
+    .rank {
+      font-size: 0.8em;
+      padding: 5px;
+      color: orange;
+      border-top: solid 2px orange;
+      border-bottom: solid 2px orange;
+      background-color: #181919;
+      z-index: 3;
+      transform: scale(0.8, 0.8);
+
+      &:before,
+      &:after {
+        content: " ";
+        border-top: 2px solid orange;
+        border-right: 2px solid orange;
+        display: inline-block;
+        position: absolute;
+        height: 16px;
+        width: 13px;
+        background-color: #181919;
+        z-index: -1;
+      }
+
+      &:before {
+        transform: rotate(210deg) skewY(20deg);
+        margin-left: -13px;
+        margin-top: -1px;
+      }
+
+      &:after {
+        transform: rotate(34deg) skewY(20deg);
+        margin-left: -1px;
+        margin-top: -1px;
       }
     }
   }
@@ -66,7 +102,7 @@ const TopMenu = () => {
           <div className="photo">
             <img className="logo" src="/static/img/default-avatar.png" alt="" />
           </div>
-          <div className="rank">rank</div>
+          <div className="rank">5 rim</div>
           <div className="honor">52</div>
         </div>
         <div className="menu">

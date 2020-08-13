@@ -5,7 +5,7 @@ const Container = styled.div`
   background-color: #222222;
   padding: 9px;
   padding-top: 12px;
-  width: 40px;
+  width: 58px;
   position: fixed;
   overflow: hidden;
   height: 100vh;
