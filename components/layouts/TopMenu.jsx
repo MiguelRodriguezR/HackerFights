@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import firebase from "../../firebase";
 import Router from "next/router";
+import useUserInfo from "../../hooks/useUserInfo";
 
 const Container = styled.div`
   position: fixed;
@@ -90,6 +91,9 @@ const Container = styled.div`
 `;
 
 const TopMenu = () => {
+
+  const {userInfo} = useUserInfo();
+
   const logout = async () => {
     await firebase.logout();
     Router.push("/login");
@@ -100,10 +104,10 @@ const TopMenu = () => {
       <Container>
         <div className="view">
           <div className="photo">
-            <img className="logo" src="/static/img/default-avatar.png" alt="" />
+            <img className="logo" src={ userInfo.urlAvatar ? userInfo.urlAvatar : "/static/img/default-avatar.png"} alt="" />
           </div>
-          <div className="rank">5 rim</div>
-          <div className="honor">52</div>
+          <div className="rank">{userInfo.rank} rim</div>
+          <div className="honor">{userInfo.honor}</div>
         </div>
         <div className="menu">
           <div className="element">

@@ -24,7 +24,17 @@ export default function Login() {
 
   async function createAccount() {
     try {
-      await firebase.register(values.username, values.email, values.password);
+      const user = await firebase.register(values.username, values.email, values.password);
+      console.log({user})
+      const userInfo = {
+        rank: 1,
+        honor: 0,
+        urlAvatar: '',
+        created: Date.now(),
+        userUid: user.uid,
+        name: user.displayName
+      };
+      await firebase.db.collection("userInfo").add(userInfo);
       Router.push("/");
     } catch (error) {
       setError(error.message);

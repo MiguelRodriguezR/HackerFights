@@ -22,7 +22,9 @@ class Firebase {
       displayName: name,
     });
 
-    return await newUser.user.sendEmailVerification();
+    await newUser.user.sendEmailVerification();
+
+    return newUser.user
   }
 
   async login(email, password) {
