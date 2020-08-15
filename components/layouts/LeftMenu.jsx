@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Router from "next/router";
 
 const Container = styled.div`
   background-color: #222222;
@@ -15,7 +16,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   transition: all 0.2s ease-in-out;
-
+  z-index: 3;
   &:hover {
     width: 150px;
   }
@@ -55,13 +56,13 @@ const LeftMenu = () => {
         <div className="icon">
           <img className="logo" src="/static/img/singleLogo.png" alt="" />
         </div>
-        <div className="text">Home</div>
+        <div className="text" onClick={() => Router.push("/")}>Home</div>
       </Option>
       <Option>
         <div className="icon">
           <i className="material-icons">settings_ethernet</i>
         </div>
-        <div className="text">Kata</div>
+        <div className="text" onClick={() => Router.push("/katas")}>Kata</div>
       </Option>
     </Container>
   );
