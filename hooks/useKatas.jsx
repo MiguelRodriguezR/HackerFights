@@ -22,7 +22,17 @@ const useKatas = () => {
         setKatas(snapkatas);
     }
 
-    return {katas};
+    const getKataById = async (id,setter) => {
+        const katasQuery = await firebase.db.collection("katas").doc(id);
+        const katasRes = await katasQuery.get();
+        if (katasRes.exists) {
+            setter(katasRes.data());
+        } else {
+            setter({error: true});
+        }
+    }
+
+    return {katas, getKataById};
 }
  
 export default useKatas;

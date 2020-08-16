@@ -52,17 +52,17 @@ const Option = styled.div`
 const LeftMenu = () => {
   return (
     <Container>
-      <Option>
+      <Option onClick={() => Router.push("/")}>
         <div className="icon">
           <img className="logo" src="/static/img/singleLogo.png" alt="" />
         </div>
-        <div className="text" onClick={() => Router.push("/")}>Home</div>
+        <div className="text">Home</div>
       </Option>
-      <Option>
+      <Option onClick={() => Router.push("/katas")}>
         <div className="icon">
           <i className="material-icons">settings_ethernet</i>
         </div>
-        <div className="text" onClick={() => Router.push("/katas")}>Kata</div>
+        <div className="text">Kata</div>
       </Option>
     </Container>
   );

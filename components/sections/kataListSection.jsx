@@ -2,12 +2,15 @@ import React from "react";
 import useKatas from "../../hooks/useKatas";
 import styled from "@emotion/styled";
 import Rank from "../fragments/rank";
+import Link from "next/link";
 
 const Container = styled.div`
   margin-bottom: 10px;
   padding: 18px;
   background-color: #262729;
   border-radius: 8px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
   .content {
     display: flex;
     justify-content: space-between;
@@ -30,16 +33,19 @@ const Container = styled.div`
       }
     }
   }
+
+  &:hover{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  }
 `;
 
 const KataListSection = () => {
   const { katas } = useKatas();
 
-  console.log({ katas });
-
   return (
     <>
       {katas.map((kata) => (
+        <Link key={kata.id} href="/description/[id]" as={`/description/${kata.id}`}>
         <Container>
           <div className="content">
             <div className="left">
@@ -51,6 +57,7 @@ const KataListSection = () => {
             <div className="right">
               {kata.languages.map((language) => (
                 <img
+                  key={language}
                   className="logo"
                   src={`/static/img/${language}.png`}
                   alt=""
@@ -59,6 +66,7 @@ const KataListSection = () => {
             </div>
           </div>
         </Container>
+        </Link>
       ))}
     </>
   );
