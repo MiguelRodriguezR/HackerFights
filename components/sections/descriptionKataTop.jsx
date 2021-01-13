@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Rank from "../fragments/rank";
+import Router from "next/router";
+import Link from "next/link";
 
 const Container = styled.div`
   margin-bottom: 10px;
@@ -87,9 +89,11 @@ const DescriptionKataTop = ({ kata }) => {
           </select>
         </div>
         <div className="actions">
-          <button className="train">
-            <i className="material-icons">play_arrow</i> TRAIN
-          </button>
+          <Link key={kata.id} href="/train/[id]" as={`/train/${kata.id}`}>  
+            <button className="train">
+              <i className="material-icons">play_arrow</i> TRAIN
+            </button>
+          </Link>
         </div>
       </div>
     </Container>

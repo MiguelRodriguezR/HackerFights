@@ -31,7 +31,7 @@ const Selector = styled.div`
 `;
 
 const DescriptionKataDetails = ({ kata }) => {
-  if (!kata.details) return <h3>Loading...</h3>;
+  if (!kata.details) return <h3></h3>;
   return (
     <>
       <Selector>Details</Selector>
